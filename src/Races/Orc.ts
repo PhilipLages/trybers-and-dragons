@@ -9,7 +9,7 @@ export default class Orc extends Race {
     Orc._instanceCounter += 1;
   }
 
-  get maxLifePoints(): number {
+  public get maxLifePoints(): number {
     return this._maxLifePoints;
   }
 
