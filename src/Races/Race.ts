@@ -1,12 +1,10 @@
 export default abstract class Race {
   private readonly _name: string;
   private readonly _dexterity: number;
-  private static _instanceCounter = 0;
 
   constructor(name: string, dexterity: number) {
     this._name = name;
     this._dexterity = dexterity;
-    Race._instanceCounter += 1;
   }
 
   static createdRacesInstances(): number {
