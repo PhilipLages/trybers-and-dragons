@@ -1,14 +1,22 @@
-import Character from '../Character';
 import Battle from './Battle';
+import Fighter from '../Fighter';
 
 export default class PVP extends Battle {
-  private _fighter1: Character;
-  private _fighter2: Character;
+  private _fighter1;
+  private _fighter2;
 
-  constructor(fighter1: Character, fighter2: Character) {
+  constructor(fighter1: Fighter, fighter2: Fighter) {
     super(fighter1);
+    this._fighter2 = fighter2;
+    this._fighter1 = fighter1;
+  }
 
-    this._fighter1 = new Character(fighter1.name);
-    this._fighter2 = new Character(fighter2.name);
+  public fight(): number {
+    while (this._fighter1.lifePoints > 0 && this._fighter2.lifePoints > 0) {
+      this._fighter1.attack(this._fighter2);
+      this._fighter2.attack(this._fighter1);
+    }
+
+    return super.fight();
   }
 }

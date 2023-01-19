@@ -52,11 +52,13 @@ export default class Character implements Fighter {
 
   public levelUp(): void {
     const newMaxLifePoints = this._maxLifePoints + getRandomInt(1, 10);
+
     if (newMaxLifePoints > this._race.maxLifePoints) {
       this._maxLifePoints = this._race.maxLifePoints;
     } else {
       this._maxLifePoints = newMaxLifePoints;
     }
+
     this._lifePoints = this._maxLifePoints;
     this._strength += getRandomInt(1, 10);
     this._dexterity += getRandomInt(1, 10);
